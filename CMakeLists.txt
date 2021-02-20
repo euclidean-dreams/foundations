@@ -10,6 +10,7 @@ set(
         include/Utils.h
         include/NonCopyable.h
         src/NetworkSocket.cpp include/NetworkSocket.h
+        src/ParameterReceiver.cpp include/ParameterReceiver.h
 )
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})
