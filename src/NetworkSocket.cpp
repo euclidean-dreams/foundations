@@ -19,6 +19,22 @@ unique_ptr<multipart_t> NetworkSocket::receive(recv_flags flags) {
     return message;
 }
 
+unique_ptr<char[]> NetworkSocket::receiveBuffer(recv_flags flags) {
+    auto envelope = receive(flags);
+    if (!envelope->empty()) {
+        auto message = envelope->pop();
+        return alignBuffer(message.data(), message.size());
+    } else {
+        return nullptr;
+    }
+}
+
+inline unique_ptr<char[]> NetworkSocket::alignBuffer(void *sourceBuffer, int size) {
+    auto destinationBuffer = make_unique<char[]>(size);
+    memcpy(destinationBuffer.get(), sourceBuffer, size);
+    return destinationBuffer;
+}
+
 void NetworkSocket::send(multipart_t &message) {
     message.send(socket);
 }

@@ -9,7 +9,6 @@ set(
         include/NonCopyable.h
 
         src/NetworkSocket.cpp include/NetworkSocket.h
-        src/ParameterReceiver.cpp include/ParameterReceiver.h
         src/RandomNumberGenerator.cpp include/RandomNumberGenerator.h
 )
 
