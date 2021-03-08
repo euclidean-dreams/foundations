@@ -38,3 +38,7 @@ inline unique_ptr<char[]> NetworkSocket::alignBuffer(void *sourceBuffer, int siz
 void NetworkSocket::send(multipart_t &message) {
     message.send(socket);
 }
+
+socket_ref NetworkSocket::getSocketRef() {
+    return socket;
+}

@@ -9,9 +9,13 @@ set(
         include/NonCopyable.h
 
         src/NetworkSocket.cpp include/NetworkSocket.h
+        src/NetworkProxy.cpp include/NetworkProxy.h
         src/RandomNumberGenerator.cpp include/RandomNumberGenerator.h
+        src/ParameterReceiver.cpp include/ParameterReceiver.h
 )
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})
 target_include_directories(impresario-utils PUBLIC include)
-target_link_libraries(impresario-utils PRIVATE zmq)
+
+find_package(cppzmq)
+target_link_libraries(impresario-utils PRIVATE cppzmq)
