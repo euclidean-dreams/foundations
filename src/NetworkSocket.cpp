@@ -22,3 +22,7 @@ unique_ptr<multipart_t> NetworkSocket::receive(recv_flags flags) {
 void NetworkSocket::send(multipart_t &message) {
     message.send(socket);
 }
+
+socket_ref NetworkSocket::getSocketRef() {
+    return socket;
+}

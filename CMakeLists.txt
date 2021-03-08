@@ -10,9 +10,12 @@ set(
         include/Utils.h
         include/NonCopyable.h
         src/NetworkSocket.cpp include/NetworkSocket.h
+        src/NetworkProxy.cpp include/NetworkProxy.h
         src/ParameterReceiver.cpp include/ParameterReceiver.h
 )
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})
 target_include_directories(impresario-utils PUBLIC include)
-target_link_libraries(impresario-utils LINK_PUBLIC zmq)
+
+find_package(cppzmq)
+target_link_libraries(impresario-utils LINK_PUBLIC cppzmq)
