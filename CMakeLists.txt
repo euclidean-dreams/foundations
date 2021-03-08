@@ -11,7 +11,6 @@ set(
         src/NetworkSocket.cpp include/NetworkSocket.h
         src/NetworkProxy.cpp include/NetworkProxy.h
         src/RandomNumberGenerator.cpp include/RandomNumberGenerator.h
-        src/ParameterReceiver.cpp include/ParameterReceiver.h
 )
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})
