@@ -24,7 +24,7 @@ unique_ptr<multipart_t> NetworkSocket::receive(recv_flags flags) {
 
 unique_ptr<char[]> NetworkSocket::receiveBuffer(recv_flags flags) {
     auto envelope = receive(flags);
-    if (!envelope->empty()) {
+    if (envelope != nullptr) {
         auto message = envelope->pop();
         return alignBuffer(message.data(), message.size());
     } else {
