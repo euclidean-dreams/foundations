@@ -15,8 +15,11 @@ void NetworkSocket::setSubscriptionFilter(const string &filter) {
 
 unique_ptr<multipart_t> NetworkSocket::receive(recv_flags flags) {
     auto message = make_unique<multipart_t>();
-    message->recv(socket, static_cast<int>(flags));
-    return message;
+    if (message->recv(socket, static_cast<int>(flags))) {
+        return message;
+    } else {
+        return nullptr;
+    }
 }
 
 unique_ptr<char[]> NetworkSocket::receiveBuffer(recv_flags flags) {
