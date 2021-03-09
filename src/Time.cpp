@@ -1,6 +1,6 @@
-#include "utils/Time.h"
+#include "Time.h"
 
-namespace utils {
+namespace impresarioUtils {
 
 uint64_t Time::getCurrentTime() {
     auto rawTime = std::chrono::time_point_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now());

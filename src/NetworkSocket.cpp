@@ -1,8 +1,8 @@
-#include "network/Socket.h"
+#include "NetworkSocket.h"
 
-namespace network {
+namespace impresarioUtils {
 
-Socket::Socket(zmq::context_t &context, const std::string &endpoint, zmq::socket_type socketType, bool bind)
+NetworkSocket::NetworkSocket(zmq::context_t &context, const std::string &endpoint, zmq::socket_type socketType, bool bind)
         : socket{context, socketType} {
     if (bind) {
         socket.bind(endpoint);
@@ -11,17 +11,17 @@ Socket::Socket(zmq::context_t &context, const std::string &endpoint, zmq::socket
     }
 }
 
-void Socket::setSubscriptionFilter(const std::string &filter) {
+void NetworkSocket::setSubscriptionFilter(const std::string &filter) {
     socket.set(zmq::sockopt::subscribe, filter);
 }
 
-std::unique_ptr<zmq::multipart_t> Socket::receive(zmq::recv_flags flags) {
+std::unique_ptr<zmq::multipart_t> NetworkSocket::receive(zmq::recv_flags flags) {
     auto message = std::make_unique<zmq::multipart_t>();
     message->recv(socket, static_cast<int>(flags));
     return message;
 }
 
-std::unique_ptr<char[]> Socket::receiveBuffer(zmq::recv_flags flags) {
+std::unique_ptr<char[]> NetworkSocket::receiveBuffer(zmq::recv_flags flags) {
     auto envelope = receive(flags);
     if (!envelope->empty()) {
         auto message = envelope->pop();
@@ -31,17 +31,17 @@ std::unique_ptr<char[]> Socket::receiveBuffer(zmq::recv_flags flags) {
     }
 }
 
-inline std::unique_ptr<char[]> Socket::alignBuffer(void *sourceBuffer, int size) {
+inline std::unique_ptr<char[]> NetworkSocket::alignBuffer(void *sourceBuffer, int size) {
     auto destinationBuffer = std::make_unique<char[]>(size);
     memcpy(destinationBuffer.get(), sourceBuffer, size);
     return destinationBuffer;
 }
 
-void Socket::send(zmq::multipart_t &message) {
+void NetworkSocket::send(zmq::multipart_t &message) {
     message.send(socket);
 }
 
-zmq::socket_ref Socket::getSocketRef() {
+zmq::socket_ref NetworkSocket::getSocketRef() {
     return socket;
 }
 

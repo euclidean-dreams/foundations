@@ -1,21 +1,21 @@
-#ifndef IMPRESARIO_UTILS_SOCKET_H
-#define IMPRESARIO_UTILS_SOCKET_H
+#ifndef IMPRESARIO_UTILS_NETWORKSOCKET_H
+#define IMPRESARIO_UTILS_NETWORKSOCKET_H
 
 #include <cstring>
 #include <zmq.hpp>
 #include <zmq_addon.hpp>
-#include "mixin/NonCopyable.h"
+#include "NonCopyable.h"
 
-namespace network {
+namespace impresarioUtils {
 
-class Socket : mixin::NonCopyable {
+class NetworkSocket : impresarioUtils::NonCopyable {
 private:
     zmq::socket_t socket;
 
     static inline std::unique_ptr<char[]> alignBuffer(void *sourceBuffer, int size);
 
 public:
-    Socket(zmq::context_t &context, const std::string &endpoint, zmq::socket_type socketType, bool bind);
+    NetworkSocket(zmq::context_t &context, const std::string &endpoint, zmq::socket_type socketType, bool bind);
 
     void setSubscriptionFilter(const std::string &filter);
 
@@ -30,4 +30,4 @@ public:
 
 }
 
-#endif //IMPRESARIO_UTILS_SOCKET_H
+#endif //IMPRESARIO_UTILS_NETWORKSOCKET_H

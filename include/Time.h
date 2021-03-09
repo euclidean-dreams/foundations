@@ -3,9 +3,10 @@
 
 #include <chrono>
 
-namespace utils {
+namespace impresarioUtils {
 
 class Time {
+public:
     static inline uint64_t getCurrentTime();
 
     static inline uint64_t getElapsedTime(uint64_t initialTime);

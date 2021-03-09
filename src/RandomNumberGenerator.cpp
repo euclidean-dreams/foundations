@@ -1,9 +1,9 @@
-#include "utils/RandomNumberGenerator.h"
+#include "RandomNumberGenerator.h"
 
-namespace utils {
+namespace impresarioUtils {
 
 RandomNumberGenerator::RandomNumberGenerator()
-        : generator{getCurrentTime()},
+        : generator{Time::getCurrentTime()},
           distribution{0, std::numeric_limits<int>::max()} {
 }
 

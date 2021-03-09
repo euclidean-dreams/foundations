@@ -2,9 +2,9 @@
 #define PERFORMER_RANDOMNUMBERGENERATOR_H
 
 #include <random>
-#include "utils/Time.h"
+#include "Time.h"
 
-namespace utils {
+namespace impresarioUtils {
 
 class RandomNumberGenerator {
 private:

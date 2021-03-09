@@ -1,7 +1,7 @@
 #ifndef IMPRESARIO_UTILS_NONCOPYABLE_H
 #define IMPRESARIO_UTILS_NONCOPYABLE_H
 
-namespace mixin {
+namespace impresarioUtils {
 
 class NonCopyable {
 public:
