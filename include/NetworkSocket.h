@@ -25,6 +25,8 @@ public:
     unique_ptr<char[]> receiveBuffer(recv_flags flags = recv_flags::none);
 
     void send(multipart_t &message);
+
+    socket_ref getSocketRef();
 };
 
 #endif //IMPRESARIO_UTILS_NETWORKSOCKET_H
