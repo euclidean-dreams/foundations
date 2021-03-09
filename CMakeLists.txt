@@ -5,12 +5,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(
         SOURCE_FILES
-        include/Utils.h
-        include/NonCopyable.h
+        include/mixin/NonCopyable.h
 
-        src/NetworkSocket.cpp include/NetworkSocket.h
-        src/NetworkProxy.cpp include/NetworkProxy.h
-        src/RandomNumberGenerator.cpp include/RandomNumberGenerator.h
+        src/utils/RandomNumberGenerator.cpp include/utils/RandomNumberGenerator.h
+        src/utils/Time.cpp include/utils/Time.h
+
+        src/network/Proxy.cpp include/network/Proxy.h
+        src/network/Socket.cpp include/network/Socket.h
 )
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})

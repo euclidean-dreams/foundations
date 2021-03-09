@@ -1,6 +1,8 @@
 #ifndef IMPRESARIO_UTILS_NONCOPYABLE_H
 #define IMPRESARIO_UTILS_NONCOPYABLE_H
 
+namespace mixin {
+
 class NonCopyable {
 public:
     NonCopyable(const NonCopyable &) = delete;
@@ -10,5 +12,7 @@ public:
 protected:
     NonCopyable() = default;
 };
+
+}
 
 #endif //IMPRESARIO_UTILS_NONCOPYABLE_H
