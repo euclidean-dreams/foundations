@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(
         SOURCE_FILES
         include/NonCopyable.h
-        include/Time.h
+        src/Time.cpp include/Time.h
 
         src/RandomNumberGenerator.cpp include/RandomNumberGenerator.h
 
