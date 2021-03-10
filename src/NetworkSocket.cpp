@@ -2,7 +2,8 @@
 
 namespace impresarioUtils {
 
-NetworkSocket::NetworkSocket(zmq::context_t &context, const std::string &endpoint, zmq::socket_type socketType, bool bind)
+NetworkSocket::NetworkSocket(zmq::context_t &context, const std::string &endpoint, zmq::socket_type socketType,
+                             bool bind)
         : socket{context, socketType} {
     if (bind) {
         socket.bind(endpoint);
