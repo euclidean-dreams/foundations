@@ -3,7 +3,7 @@
 namespace impresarioUtils {
 
 RandomNumberGenerator::RandomNumberGenerator()
-        : generator{Time::getCurrentTime()},
+        : generator{getCurrentTime()},
           distribution{0, std::numeric_limits<int>::max()} {
 }
 
