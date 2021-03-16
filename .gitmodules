@@ -1,0 +1,4 @@
+[submodule "lib/cmake-utils"]
+	path = lib/cmake-utils
+	url = git@github.com:impresario-systems/cmake-utils.git
+	branch = master

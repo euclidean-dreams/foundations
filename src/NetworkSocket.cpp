@@ -13,6 +13,10 @@ NetworkSocket::NetworkSocket(zmq::context_t &context, const std::string &endpoin
 }
 
 void NetworkSocket::setSubscriptionFilter(const std::string &filter) {
+    setSubscriptionFilter(std::string_view{filter});
+}
+
+void NetworkSocket::setSubscriptionFilter(std::string_view filter) {
     socket.set(zmq::sockopt::subscribe, filter);
 }
 
@@ -22,25 +26,30 @@ std::unique_ptr<zmq::multipart_t> NetworkSocket::receive(zmq::recv_flags flags) 
     return message;
 }
 
-std::unique_ptr<char[]> NetworkSocket::receiveBuffer(zmq::recv_flags flags) {
+std::unique_ptr<SerializedData> NetworkSocket::receiveSerializedData(zmq::recv_flags flags) {
     auto envelope = receive(flags);
     if (!envelope->empty()) {
-        auto subscriptionFilter = envelope->pop();
-        auto message = envelope->pop();
-        return alignBuffer(message.data(), message.size());
+        auto identifierWrapper = envelope->pop();
+        auto payload = envelope->pop();
+        return std::make_unique<SerializedData>(identifierWrapper, payload);
     } else {
         return nullptr;
     }
 }
 
-inline std::unique_ptr<char[]> NetworkSocket::alignBuffer(void *sourceBuffer, int size) {
-    auto destinationBuffer = std::make_unique<char[]>(size);
-    memcpy(destinationBuffer.get(), sourceBuffer, size);
-    return destinationBuffer;
-}
-
 void NetworkSocket::send(zmq::multipart_t &message) {
     message.send(socket);
+}
+
+void NetworkSocket::sendSerializedData(ImpresarioSerialization::Identifier identifier,
+                                       flatbuffers::FlatBufferBuilder &builder) {
+    flatbuffers::FlatBufferBuilder identifierWrapperBuilder{};
+    auto serializedIdentifier = ImpresarioSerialization::CreateIdentifierWrapper(identifierWrapperBuilder, identifier);
+    identifierWrapperBuilder.Finish(serializedIdentifier);
+    auto message = std::make_unique<zmq::multipart_t>();
+    message->addmem(identifierWrapperBuilder.GetBufferPointer(), identifierWrapperBuilder.GetSize());
+    message->addmem(builder.GetBufferPointer(), builder.GetSize());
+    message->send(socket);
 }
 
 zmq::socket_ref NetworkSocket::getSocketRef() {
