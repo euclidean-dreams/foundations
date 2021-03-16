@@ -28,4 +28,4 @@ target_include_directories(impresario-utils PUBLIC include)
 
 find_package(cppzmq)
 target_link_libraries(impresario-utils PRIVATE cppzmq)
-target_link_libraries(impresario-utils PRIVATE impresario-serialization)
+target_link_libraries(impresario-utils PUBLIC impresario-serialization)
