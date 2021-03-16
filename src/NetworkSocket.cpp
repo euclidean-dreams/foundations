@@ -42,13 +42,13 @@ void NetworkSocket::send(zmq::multipart_t &message) {
 }
 
 void NetworkSocket::sendSerializedData(ImpresarioSerialization::Identifier identifier,
-                                       flatbuffers::FlatBufferBuilder &builder) {
+                                       flatbuffers::FlatBufferBuilder &messageBuilder) {
     flatbuffers::FlatBufferBuilder identifierWrapperBuilder{};
     auto serializedIdentifier = ImpresarioSerialization::CreateIdentifierWrapper(identifierWrapperBuilder, identifier);
     identifierWrapperBuilder.Finish(serializedIdentifier);
     auto message = std::make_unique<zmq::multipart_t>();
     message->addmem(identifierWrapperBuilder.GetBufferPointer(), identifierWrapperBuilder.GetSize());
-    message->addmem(builder.GetBufferPointer(), builder.GetSize());
+    message->addmem(messageBuilder.GetBufferPointer(), messageBuilder.GetSize());
     message->send(socket);
 }
 

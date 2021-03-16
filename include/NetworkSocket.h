@@ -27,7 +27,8 @@ public:
 
     void send(zmq::multipart_t &message);
 
-    void sendSerializedData(ImpresarioSerialization::Identifier identifier, flatbuffers::FlatBufferBuilder &builder);
+    void sendSerializedData(ImpresarioSerialization::Identifier identifier,
+                            flatbuffers::FlatBufferBuilder &messageBuilder);
 
     zmq::socket_ref getSocketRef();
 };
