@@ -25,6 +25,7 @@ std::unique_ptr<zmq::multipart_t> NetworkSocket::receive(zmq::recv_flags flags) 
 std::unique_ptr<char[]> NetworkSocket::receiveBuffer(zmq::recv_flags flags) {
     auto envelope = receive(flags);
     if (!envelope->empty()) {
+        auto subscriptionFilter = envelope->pop();
         auto message = envelope->pop();
         return alignBuffer(message.data(), message.size());
     } else {
