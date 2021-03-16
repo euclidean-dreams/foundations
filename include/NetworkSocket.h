@@ -17,9 +17,7 @@ private:
 public:
     NetworkSocket(zmq::context_t &context, const std::string &endpoint, zmq::socket_type socketType, bool bind);
 
-    void setSubscriptionFilter(const std::string &filter);
-
-    void setSubscriptionFilter(std::string_view filter);
+    void setSubscriptionFilter(ImpresarioSerialization::Identifier identifier);
 
     std::unique_ptr<zmq::multipart_t> receive(zmq::recv_flags flags = zmq::recv_flags::none);
 

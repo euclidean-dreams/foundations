@@ -12,11 +12,11 @@ NetworkSocket::NetworkSocket(zmq::context_t &context, const std::string &endpoin
     }
 }
 
-void NetworkSocket::setSubscriptionFilter(const std::string &filter) {
-    setSubscriptionFilter(std::string_view{filter});
-}
-
-void NetworkSocket::setSubscriptionFilter(std::string_view filter) {
+void NetworkSocket::setSubscriptionFilter(ImpresarioSerialization::Identifier identifier) {
+    flatbuffers::FlatBufferBuilder identifierWrapperBuilder{};
+    auto serializedIdentifier = ImpresarioSerialization::CreateIdentifierWrapper(identifierWrapperBuilder, identifier);
+    identifierWrapperBuilder.Finish(serializedIdentifier);
+    zmq::const_buffer filter{identifierWrapperBuilder.GetBufferPointer(), identifierWrapperBuilder.GetSize()};
     socket.set(zmq::sockopt::subscribe, filter);
 }
 
