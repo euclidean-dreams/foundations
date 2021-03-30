@@ -3,7 +3,7 @@
 
 #include <zmq.hpp>
 #include <memory>
-#include <IdentifierWrapper_generated.h>
+#include <ImpresarioSerialization.h>
 #include "NonCopyable.h"
 
 namespace impresarioUtils {

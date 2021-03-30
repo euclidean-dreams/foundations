@@ -4,7 +4,7 @@
 #include <string_view>
 #include <zmq.hpp>
 #include <zmq_addon.hpp>
-#include <IdentifierWrapper_generated.h>
+#include <ImpresarioSerialization.h>
 #include "NonCopyable.h"
 #include "SerializedData.h"
 
