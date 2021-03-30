@@ -12,18 +12,20 @@ integrate_cmake_dependency(
 
 set(
         SOURCE_FILES
-        include/NonCopyable.h
-        src/Time.cpp include/Time.h
+        include/ImpresarioUtils.h
 
-        src/RandomNumberGenerator.cpp include/RandomNumberGenerator.h
+        src/NonCopyable.h
+        src/Time.cpp src/Time.h
 
-        src/NetworkProxy.cpp include/NetworkProxy.h
-        src/NetworkSocket.cpp include/NetworkSocket.h
-        src/SerializedData.cpp include/SerializedData.h
+        src/RandomNumberGenerator.cpp src/RandomNumberGenerator.h
 
+        src/NetworkProxy.cpp src/NetworkProxy.h
+        src/NetworkSocket.cpp src/NetworkSocket.h
+        src/SerializedData.cpp src/SerializedData.h
 )
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})
+target_include_directories(impresario-utils PRIVATE src)
 target_include_directories(impresario-utils PUBLIC include)
 
 find_package(cppzmq)
