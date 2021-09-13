@@ -7,7 +7,7 @@
 
 namespace impresarioUtils {
 
-class NetworkProxy : impresarioUtils::NonCopyable {
+class NetworkProxy : NonCopyable {
 private:
     std::unique_ptr<NetworkSocket> inputSocket;
     std::unique_ptr<NetworkSocket> outputSocket;

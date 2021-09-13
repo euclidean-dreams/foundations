@@ -8,7 +8,7 @@
 
 namespace impresarioUtils {
 
-class SerializedData : impresarioUtils::NonCopyable {
+class SerializedData : NonCopyable {
 private:
     ImpresarioSerialization::Identifier identifier;
     std::unique_ptr<char[]> buffer;

@@ -21,7 +21,13 @@ set(
 
         src/NetworkProxy.cpp src/NetworkProxy.h
         src/NetworkSocket.cpp src/NetworkSocket.h
+
         src/SerializedData.cpp src/SerializedData.h
+
+        src/Packet.cpp src/Packet.h
+        src/PacketCollection.cpp src/PacketCollection.h
+        src/PacketReceiver.cpp src/PacketReceiver.h
+        src/InvalidDeserializationException.h
 )
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})

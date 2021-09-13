@@ -10,7 +10,7 @@
 
 namespace impresarioUtils {
 
-class NetworkSocket : impresarioUtils::NonCopyable {
+class NetworkSocket : NonCopyable {
 private:
     zmq::socket_t socket;
 

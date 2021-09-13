@@ -7,5 +7,9 @@
 #include "../src/RandomNumberGenerator.h"
 #include "../src/SerializedData.h"
 #include "../src/Time.h"
+#include "../src/Packet.h"
+#include "../src/PacketCollection.h"
+#include "../src/InvalidDeserializationException.h"
+#include "../src/PacketReceiver.h"
 
 #endif //IMPRESARIO_UTILS_IMPRESARIOUTILS_H
