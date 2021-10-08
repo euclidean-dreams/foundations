@@ -12,4 +12,8 @@ int RandomNumberGenerator::generate(int max) {
     return randomNumber % max;
 }
 
+float RandomNumberGenerator::generateProportion() {
+    return generate(1000) / 1000;
+}
+
 }

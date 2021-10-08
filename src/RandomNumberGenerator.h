@@ -16,6 +16,8 @@ public:
     RandomNumberGenerator();
 
     int generate(int max);
+
+    float generateProportion();
 };
 
 }
