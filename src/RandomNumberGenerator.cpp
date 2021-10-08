@@ -13,7 +13,7 @@ int RandomNumberGenerator::generate(int max) {
 }
 
 float RandomNumberGenerator::generateProportion() {
-    return generate(1000) / 1000;
+    return static_cast<float>(generate(1000)) / 1000;
 }
 
 }
