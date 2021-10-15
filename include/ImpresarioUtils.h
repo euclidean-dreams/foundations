@@ -11,5 +11,6 @@
 #include "../src/PacketCollection.h"
 #include "../src/InvalidDeserializationException.h"
 #include "../src/PacketReceiver.h"
+#include "../src/Point.h"
 
 #endif //IMPRESARIO_UTILS_IMPRESARIOUTILS_H

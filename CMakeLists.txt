@@ -28,6 +28,8 @@ set(
         src/PacketCollection.cpp src/PacketCollection.h
         src/PacketReceiver.cpp src/PacketReceiver.h
         src/InvalidDeserializationException.h
+
+        src/Point.cpp src/Point.h
 )
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})
