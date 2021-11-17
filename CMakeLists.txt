@@ -30,6 +30,8 @@ set(
         src/InvalidDeserializationException.h
 
         src/Point.cpp src/Point.h
+        src/Circlet.cpp src/Circlet.h
+        src/Circulable.h
 )
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})
@@ -38,3 +40,4 @@ target_include_directories(impresario-utils PUBLIC include)
 find_package(cppzmq)
 target_link_libraries(impresario-utils PRIVATE cppzmq)
 target_link_libraries(impresario-utils PUBLIC impresario-serialization)
+target_link_libraries(impresario-utils PUBLIC pthread)
