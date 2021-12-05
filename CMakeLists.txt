@@ -24,15 +24,16 @@ set(
 
         src/SerializedData.cpp src/SerializedData.h
 
-        src/Packet.cpp src/Packet.h
-        src/PacketCollection.cpp src/PacketCollection.h
-        src/PacketReceiver.cpp src/PacketReceiver.h
+        src/Parcel.cpp src/Parcel.h
+        src/ParcelCollection.cpp src/ParcelCollection.h
+        src/ParcelReceiver.cpp src/ParcelReceiver.h
         src/InvalidDeserializationException.h
 
         src/Point.cpp src/Point.h
         src/Circlet.cpp src/Circlet.h
         src/Circulable.h
-        src/Arbiter.cpp src/Arbiter.h)
+        src/Arbiter.cpp src/Arbiter.h
+)
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})
 target_include_directories(impresario-utils PUBLIC include)
