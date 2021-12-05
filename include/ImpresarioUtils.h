@@ -14,5 +14,6 @@
 #include "../src/Point.h"
 #include "../src/Circlet.h"
 #include "../src/Circulable.h"
+#include "../src/Arbiter.h"
 
 #endif //IMPRESARIO_UTILS_IMPRESARIOUTILS_H
