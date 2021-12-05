@@ -14,10 +14,9 @@ private:
     std::shared_ptr<const T> arbitable;
 
 public:
-    void give(std::shared_ptr<const T> newArbitable) {
+    void give(std::unique_ptr<const T> newArbitable) {
         std::unique_lock<std::mutex> lock{mutex};
         arbitable = move(newArbitable);
-
     }
 
     std::shared_ptr<const T> take() {
