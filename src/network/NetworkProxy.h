@@ -3,7 +3,7 @@
 
 #include <memory>
 #include "NonCopyable.h"
-#include "NetworkSocket.h"
+#include "network/NetworkSocket.h"
 
 namespace impresarioUtils {
 

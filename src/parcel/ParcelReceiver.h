@@ -4,7 +4,7 @@
 #include "NonCopyable.h"
 #include "Parcel.h"
 #include "ParcelCollection.h"
-#include "NetworkSocket.h"
+#include "network/NetworkSocket.h"
 
 namespace impresarioUtils {
 

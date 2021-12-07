@@ -19,23 +19,27 @@ set(
 
         src/RandomNumberGenerator.cpp src/RandomNumberGenerator.h
 
-        src/NetworkProxy.cpp src/NetworkProxy.h
-        src/NetworkSocket.cpp src/NetworkSocket.h
+        src/network/NetworkProxy.cpp src/network/NetworkProxy.h
+        src/network/NetworkSocket.cpp src/network/NetworkSocket.h
 
-        src/SerializedData.cpp src/SerializedData.h
+        src/network/SerializedData.cpp src/network/SerializedData.h
 
-        src/Parcel.cpp src/Parcel.h
-        src/ParcelCollection.cpp src/ParcelCollection.h
-        src/ParcelReceiver.cpp src/ParcelReceiver.h
-        src/InvalidDeserializationException.h
+        src/parcel/Parcel.cpp src/parcel/Parcel.h
+        src/parcel/ParcelCollection.cpp src/parcel/ParcelCollection.h
+        src/parcel/ParcelReceiver.cpp src/parcel/ParcelReceiver.h
+        src/network/InvalidDeserializationException.h
 
         src/Point.cpp src/Point.h
-        src/Circlet.cpp src/Circlet.h
-        src/Circulable.h
-        src/Arbiter.h
-)
+
+        src/circlet/Circlet.cpp src/circlet/Circlet.h
+        src/circlet/Circulable.h
+
+        src/arbiter/Arbiter.h
+        src/arbiter/BufferArbiter.h
+        src/Coordinate.cpp src/Coordinate.h)
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})
+target_include_directories(impresario-utils PRIVATE src)
 target_include_directories(impresario-utils PUBLIC include)
 
 find_package(cppzmq)

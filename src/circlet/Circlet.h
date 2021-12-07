@@ -2,7 +2,7 @@
 #define IMPRESARIO_UTILS_CIRCLET_H
 
 #include <thread>
-#include "Circulable.h"
+#include "circlet/Circulable.h"
 #include "Time.h"
 
 namespace impresarioUtils {
