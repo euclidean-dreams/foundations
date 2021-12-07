@@ -4,7 +4,7 @@
 #include <mutex>
 #include <memory>
 #include <vector>
-#include "NonCopyable.h"
+#include "../NonCopyable.h"
 
 namespace impresarioUtils {
 

@@ -5,8 +5,8 @@
 #include <zmq.hpp>
 #include <zmq_addon.hpp>
 #include <ImpresarioSerialization.h>
-#include "NonCopyable.h"
-#include "network/SerializedData.h"
+#include "../NonCopyable.h"
+#include "SerializedData.h"
 
 namespace impresarioUtils {
 

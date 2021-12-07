@@ -1,7 +1,7 @@
 #ifndef IMPRESARIO_UTILS_CIRCULABLE_H
 #define IMPRESARIO_UTILS_CIRCULABLE_H
 
-#include "NonCopyable.h"
+#include "../NonCopyable.h"
 
 namespace impresarioUtils {
 

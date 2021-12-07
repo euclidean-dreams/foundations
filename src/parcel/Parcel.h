@@ -3,9 +3,9 @@
 
 #include <memory>
 #include <ImpresarioSerialization.h>
-#include "NonCopyable.h"
-#include "network/SerializedData.h"
-#include "network/InvalidDeserializationException.h"
+#include "../NonCopyable.h"
+#include "../network/SerializedData.h"
+#include "../network/InvalidDeserializationException.h"
 
 namespace impresarioUtils {
 

@@ -1,10 +1,10 @@
 #ifndef IMPRESARIO_UTILS_PARCELRECEIVER_H
 #define IMPRESARIO_UTILS_PARCELRECEIVER_H
 
-#include "NonCopyable.h"
+#include "../NonCopyable.h"
+#include "../network/NetworkSocket.h"
 #include "Parcel.h"
 #include "ParcelCollection.h"
-#include "network/NetworkSocket.h"
 
 namespace impresarioUtils {
 

@@ -3,7 +3,7 @@
 
 #include <mutex>
 #include <memory>
-#include "NonCopyable.h"
+#include "../NonCopyable.h"
 
 namespace impresarioUtils {
 

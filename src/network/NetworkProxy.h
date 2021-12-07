@@ -2,8 +2,8 @@
 #define IMPRESARIO_UTILS_NETWORKPROXY_H
 
 #include <memory>
-#include "NonCopyable.h"
-#include "network/NetworkSocket.h"
+#include "../NonCopyable.h"
+#include "NetworkSocket.h"
 
 namespace impresarioUtils {
 

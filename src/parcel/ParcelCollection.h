@@ -3,7 +3,7 @@
 
 #include <list>
 #include <memory>
-#include "parcel/Parcel.h"
+#include "Parcel.h"
 
 namespace impresarioUtils {
 

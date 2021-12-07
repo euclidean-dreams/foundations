@@ -4,7 +4,7 @@
 #include <zmq.hpp>
 #include <memory>
 #include <ImpresarioSerialization.h>
-#include "NonCopyable.h"
+#include "../NonCopyable.h"
 
 namespace impresarioUtils {
 

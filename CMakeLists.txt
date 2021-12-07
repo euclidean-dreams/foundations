@@ -39,7 +39,6 @@ set(
         src/Coordinate.cpp src/Coordinate.h)
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})
-target_include_directories(impresario-utils PRIVATE src)
 target_include_directories(impresario-utils PUBLIC include)
 
 find_package(cppzmq)
