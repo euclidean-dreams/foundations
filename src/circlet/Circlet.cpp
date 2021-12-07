@@ -2,12 +2,12 @@
 
 namespace impresarioUtils {
 
-std::unique_ptr<std::thread> Circlet::begin(std::shared_ptr<Circulable> circulable) {
+std::unique_ptr<std::thread> Circlet::begin(std::unique_ptr<Circulable> circulable) {
     auto thread = std::make_unique<std::thread>(circle, move(circulable));
     return thread;
 }
 
-void Circlet::circle(std::shared_ptr<Circulable> circulable) {
+void Circlet::circle(std::unique_ptr<Circulable> circulable) {
     while (!circulable->finished()) {
         auto cycleStartTime = getCurrentTime();
         circulable->activate();

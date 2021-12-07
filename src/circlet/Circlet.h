@@ -9,9 +9,9 @@ namespace impresarioUtils {
 
 class Circlet {
 public:
-    static std::unique_ptr<std::thread> begin(std::shared_ptr<Circulable> circulable);
+    static std::unique_ptr<std::thread> begin(std::unique_ptr<Circulable> circulable);
 
-    static void circle(std::shared_ptr<Circulable> circulable);
+    static void circle(std::unique_ptr<Circulable> circulable);
 };
 
 }
