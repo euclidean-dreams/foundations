@@ -1,8 +1,9 @@
 #ifndef IMPRESARIO_UTILS_RANDOMNUMBERGENERATOR_H
 #define IMPRESARIO_UTILS_RANDOMNUMBERGENERATOR_H
 
+#include <mutex>
 #include <random>
-#include "Time.h"
+#include <memory>
 #include "NonCopyable.h"
 
 #define RANDOM impresarioUtils::RandomNumberGenerator::getInstance()
@@ -13,6 +14,7 @@ class RandomNumberGenerator : public NonCopyable {
 private:
     static std::unique_ptr<RandomNumberGenerator> instance;
 
+    std::mutex mutex;
     std::default_random_engine generator;
     std::uniform_int_distribution<int> distribution;
 
