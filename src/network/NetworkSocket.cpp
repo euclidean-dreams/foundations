@@ -26,7 +26,7 @@ std::unique_ptr<zmq::multipart_t> NetworkSocket::receive(zmq::recv_flags flags) 
     return message;
 }
 
-std::unique_ptr<Parcel> NetworkSocket::receiveSerializedData(zmq::recv_flags flags) {
+std::unique_ptr<Parcel> NetworkSocket::receiveParcel(zmq::recv_flags flags) {
     auto envelope = receive(flags);
     if (!envelope->empty()) {
         auto identifierWrapper = envelope->pop();
@@ -41,8 +41,8 @@ void NetworkSocket::send(zmq::multipart_t &message) {
     message.send(socket);
 }
 
-void NetworkSocket::sendSerializedData(ImpresarioSerialization::Identifier identifier,
-                                       flatbuffers::FlatBufferBuilder &messageBuilder) {
+void NetworkSocket::sendParcel(ImpresarioSerialization::Identifier identifier,
+                               flatbuffers::FlatBufferBuilder &messageBuilder) {
     flatbuffers::FlatBufferBuilder identifierWrapperBuilder{};
     auto serializedIdentifier = ImpresarioSerialization::CreateIdentifierWrapper(identifierWrapperBuilder, identifier);
     identifierWrapperBuilder.Finish(serializedIdentifier);

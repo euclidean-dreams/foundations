@@ -8,13 +8,13 @@ namespace impresarioUtils {
 
 class Unwrap {
 public:
-    static const ImpresarioSerialization::Axiomology *Axiomology(Parcel &serializedData);
+    static const ImpresarioSerialization::Axiomology *Axiomology(const Parcel &parcel);
 
-    static const ImpresarioSerialization::Essentia *Essentia(Parcel &serializedData);
+    static const ImpresarioSerialization::Essentia *Essentia(const Parcel &parcel);
 
-    static const ImpresarioSerialization::Glimpse *Glimpse(Parcel &serializedData);
+    static const ImpresarioSerialization::Glimpse *Glimpse(const Parcel &parcel);
 
-    static const ImpresarioSerialization::Phenomenon *Phenomenon(Parcel &serializedData);
+    static const ImpresarioSerialization::Phenomenon *Phenomenon(const Parcel &parcel);
 };
 
 class InvalidUnwrapException : public std::logic_error {

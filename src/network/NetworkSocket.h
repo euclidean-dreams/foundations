@@ -21,12 +21,11 @@ public:
 
     std::unique_ptr<zmq::multipart_t> receive(zmq::recv_flags flags = zmq::recv_flags::none);
 
-    std::unique_ptr<Parcel> receiveSerializedData(zmq::recv_flags flags = zmq::recv_flags::none);
+    std::unique_ptr<Parcel> receiveParcel(zmq::recv_flags flags = zmq::recv_flags::none);
 
     void send(zmq::multipart_t &message);
 
-    void sendSerializedData(ImpresarioSerialization::Identifier identifier,
-                            flatbuffers::FlatBufferBuilder &messageBuilder);
+    void sendParcel(ImpresarioSerialization::Identifier identifier, flatbuffers::FlatBufferBuilder &messageBuilder);
 
     zmq::socket_ref getSocketRef();
 };

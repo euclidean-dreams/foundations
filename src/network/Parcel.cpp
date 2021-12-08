@@ -14,11 +14,11 @@ std::unique_ptr<char[]> Parcel::alignBuffer(void *sourceBuffer, int size) {
     return destinationBuffer;
 }
 
-ImpresarioSerialization::Identifier Parcel::getIdentifier() {
+ImpresarioSerialization::Identifier Parcel::getIdentifier() const {
     return identifier;
 }
 
-const char *Parcel::getBuffer() {
+const char *Parcel::getBuffer() const {
     return buffer.get();
 }
 

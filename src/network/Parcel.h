@@ -18,9 +18,9 @@ private:
 public:
     Parcel(zmq::message_t &identifierWrapper, zmq::message_t &payload);
 
-    ImpresarioSerialization::Identifier getIdentifier();
+    ImpresarioSerialization::Identifier getIdentifier() const;
 
-    const char *getBuffer();
+    const char *getBuffer() const;
 };
 
 }
