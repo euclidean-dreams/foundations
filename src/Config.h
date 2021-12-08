@@ -4,9 +4,6 @@
 #include <memory>
 #include <stdexcept>
 #include <yaml-cpp/yaml.h>
-#include <spdlog/spdlog.h>
-
-#define LOGGER_NAME Config::getInstance().getString("logger_name")
 
 namespace impresarioUtils {
 

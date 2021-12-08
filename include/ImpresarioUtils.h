@@ -4,6 +4,7 @@
 #include "../src/Bootstrapper.h"
 #include "../src/Config.h"
 #include "../src/Coordinate.h"
+#include "../src/Macros.h"
 #include "../src/NonCopyable.h"
 #include "../src/Point.h"
 #include "../src/RandomNumberGenerator.h"

@@ -45,7 +45,7 @@ set(
 
         src/arbiter/Arbiter.h
         src/arbiter/BufferArbiter.h
-)
+        src/Macros.h)
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})
 target_include_directories(impresario-utils PUBLIC include)
