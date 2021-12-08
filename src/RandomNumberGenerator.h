@@ -25,7 +25,7 @@ public:
 
     static void initialize();
 
-    int generate(int max);
+    int generate(int exclusive_max);
 
     float generateProportion();
 };
