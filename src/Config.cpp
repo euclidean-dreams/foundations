@@ -36,4 +36,8 @@ float Config::getFloat(const char *name) {
     return configFile[name].as<float>();
 }
 
+bool Config::getBool(const char *name) {
+    return configFile[name].as<bool>();
+}
+
 }

@@ -30,6 +30,8 @@ public:
     std::string getString(const char *name);
 
     float getFloat(const char *name);
+
+    bool getBool(const char *name);
 };
 
 }
