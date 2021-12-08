@@ -11,4 +11,8 @@ uint64_t getElapsedTime(uint64_t initialTime) {
     return getCurrentTime() - initialTime;
 }
 
+void sleep(uint64_t microseconds) {
+    std::this_thread::sleep_for(std::chrono::microseconds(microseconds));
+}
+
 }

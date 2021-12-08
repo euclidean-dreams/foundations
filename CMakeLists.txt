@@ -37,9 +37,6 @@ set(
         src/network/Parcel.cpp src/network/Parcel.h
         src/network/Unwrap.cpp src/network/Unwrap.h
 
-        src/Point.cpp src/Point.h
-        src/Coordinate.cpp src/Coordinate.h
-
         src/circlet/Circlet.cpp src/circlet/Circlet.h
         src/circlet/Circulable.h
 

@@ -13,9 +13,7 @@ void Circlet::circle(std::unique_ptr<Circulable> circulable) {
         circulable->activate();
         auto totalCycleTime = getElapsedTime(cycleStartTime);
         if (circulable->getTickInterval() > totalCycleTime) {
-            std::this_thread::sleep_for(
-                    std::chrono::microseconds(circulable->getTickInterval() - totalCycleTime)
-            );
+            sleep(circulable->getTickInterval() - totalCycleTime);
         }
     }
 }
