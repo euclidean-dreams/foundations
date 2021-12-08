@@ -7,6 +7,7 @@
 namespace impresarioUtils {
 
 class Unwrap {
+public:
     static const ImpresarioSerialization::Axiomology *Axiomology(Parcel &serializedData);
 
     static const ImpresarioSerialization::Essentia *Essentia(Parcel &serializedData);
