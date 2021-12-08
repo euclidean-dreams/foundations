@@ -3,6 +3,7 @@
 
 #include <spdlog/spdlog.h>
 
-#define LOGGER spdlog::get("logger")
+#define LOGGER_NAME "logger"
+#define LOGGER spdlog::get(LOGGER_NAME)
 
 #endif //IMPRESARIO_UTILS_MACROS_H

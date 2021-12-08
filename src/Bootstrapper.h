@@ -5,6 +5,7 @@
 #include <zmq.hpp>
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include "Config.h"
+#include "Macros.h"
 
 namespace impresarioUtils {
 
