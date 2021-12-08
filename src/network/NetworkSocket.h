@@ -6,7 +6,7 @@
 #include <zmq_addon.hpp>
 #include <ImpresarioSerialization.h>
 #include "../NonCopyable.h"
-#include "SerializedData.h"
+#include "Parcel.h"
 
 namespace impresarioUtils {
 
@@ -21,7 +21,7 @@ public:
 
     std::unique_ptr<zmq::multipart_t> receive(zmq::recv_flags flags = zmq::recv_flags::none);
 
-    std::unique_ptr<SerializedData> receiveSerializedData(zmq::recv_flags flags = zmq::recv_flags::none);
+    std::unique_ptr<Parcel> receiveSerializedData(zmq::recv_flags flags = zmq::recv_flags::none);
 
     void send(zmq::multipart_t &message);
 

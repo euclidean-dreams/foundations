@@ -26,12 +26,12 @@ std::unique_ptr<zmq::multipart_t> NetworkSocket::receive(zmq::recv_flags flags) 
     return message;
 }
 
-std::unique_ptr<SerializedData> NetworkSocket::receiveSerializedData(zmq::recv_flags flags) {
+std::unique_ptr<Parcel> NetworkSocket::receiveSerializedData(zmq::recv_flags flags) {
     auto envelope = receive(flags);
     if (!envelope->empty()) {
         auto identifierWrapper = envelope->pop();
         auto payload = envelope->pop();
-        return std::make_unique<SerializedData>(identifierWrapper, payload);
+        return std::make_unique<Parcel>(identifierWrapper, payload);
     } else {
         return nullptr;
     }

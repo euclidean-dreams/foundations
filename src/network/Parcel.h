@@ -1,5 +1,5 @@
-#ifndef IMPRESARIO_UTILS_SERIALIZEDDATA_H
-#define IMPRESARIO_UTILS_SERIALIZEDDATA_H
+#ifndef IMPRESARIO_UTILS_PARCEL_H
+#define IMPRESARIO_UTILS_PARCEL_H
 
 #include <zmq.hpp>
 #include <memory>
@@ -8,7 +8,7 @@
 
 namespace impresarioUtils {
 
-class SerializedData : NonCopyable {
+class Parcel : NonCopyable {
 private:
     ImpresarioSerialization::Identifier identifier;
     std::unique_ptr<char[]> buffer;
@@ -16,7 +16,7 @@ private:
     static std::unique_ptr<char[]> alignBuffer(void *sourceBuffer, int size);
 
 public:
-    SerializedData(zmq::message_t &identifierWrapper, zmq::message_t &payload);
+    Parcel(zmq::message_t &identifierWrapper, zmq::message_t &payload);
 
     ImpresarioSerialization::Identifier getIdentifier();
 
@@ -25,4 +25,4 @@ public:
 
 }
 
-#endif //IMPRESARIO_UTILS_SERIALIZEDDATA_H
+#endif //IMPRESARIO_UTILS_PARCEL_H
