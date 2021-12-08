@@ -5,15 +5,23 @@
 #include "Time.h"
 #include "NonCopyable.h"
 
+#define RANDOM impresarioUtils::RandomNumberGenerator::getInstance()
+
 namespace impresarioUtils {
 
-class RandomNumberGenerator : NonCopyable {
+class RandomNumberGenerator : public NonCopyable {
 private:
+    static std::unique_ptr<RandomNumberGenerator> instance;
+
     std::default_random_engine generator;
     std::uniform_int_distribution<int> distribution;
 
-public:
     RandomNumberGenerator();
+
+public:
+    static RandomNumberGenerator &getInstance();
+
+    static void initialize();
 
     int generate(int max);
 
