@@ -20,6 +20,8 @@ private:
 
     RandomNumberGenerator();
 
+    int generateNumber(int exclusive_max);
+
 public:
     static RandomNumberGenerator &getInstance();
 

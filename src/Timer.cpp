@@ -7,8 +7,12 @@ Timer::Timer()
 
 }
 
-void Timer::logTime() {
-    LOGGER->info(getElapsedTime(startTime));
+uint64_t Timer::getTime() const {
+    return getElapsedTime(startTime);
+}
+
+void Timer::logTime() const {
+    LOGGER->info(getTime());
 }
 
 }

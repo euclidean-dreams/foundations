@@ -13,7 +13,9 @@ private:
 public:
     Timer();
 
-    void logTime();
+    uint64_t getTime() const;
+
+    void logTime() const;
 };
 
 }

@@ -22,15 +22,19 @@ RandomNumberGenerator::RandomNumberGenerator()
           mutex{} {
 }
 
-int RandomNumberGenerator::generate(int exclusive_max) {
-    std::unique_lock<std::mutex> lock{mutex};
+int RandomNumberGenerator::generateNumber(int exclusive_max) {
     auto randomNumber = distribution(generator);
     return randomNumber % exclusive_max;
 }
 
+int RandomNumberGenerator::generate(int exclusive_max) {
+    std::unique_lock<std::mutex> lock{mutex};
+    return generateNumber(exclusive_max)
+}
+
 float RandomNumberGenerator::generateProportion() {
     std::unique_lock<std::mutex> lock{mutex};
-    return static_cast<float>(generate(10000)) / 9999;
+    return static_cast<float>(generateNumber(10000)) / 9999;
 }
 
 }
