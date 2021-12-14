@@ -29,7 +29,7 @@ int RandomNumberGenerator::generateNumber(int exclusive_max) {
 
 int RandomNumberGenerator::generate(int exclusive_max) {
     std::unique_lock<std::mutex> lock{mutex};
-    return generateNumber(exclusive_max)
+    return generateNumber(exclusive_max);
 }
 
 float RandomNumberGenerator::generateProportion() {
