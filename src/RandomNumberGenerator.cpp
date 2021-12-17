@@ -23,6 +23,9 @@ RandomNumberGenerator::RandomNumberGenerator()
 }
 
 int RandomNumberGenerator::generateNumber(int exclusive_max) {
+    if (exclusive_max <= 0) {
+        return 0;
+    }
     auto randomNumber = distribution(generator);
     return randomNumber % exclusive_max;
 }
