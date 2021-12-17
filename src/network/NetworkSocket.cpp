@@ -18,6 +18,8 @@ void NetworkSocket::setSubscriptionFilter(ImpresarioSerialization::Identifier id
     identifierWrapperBuilder.Finish(serializedIdentifier);
     zmq::const_buffer filter{identifierWrapperBuilder.GetBufferPointer(), identifierWrapperBuilder.GetSize()};
     socket.set(zmq::sockopt::subscribe, filter);
+    socket.set(zmq::sockopt::reconnect_ivl, 100);
+    socket.set(zmq::sockopt::reconnect_ivl_max, 1000);
 }
 
 std::unique_ptr<zmq::multipart_t> NetworkSocket::receive(zmq::recv_flags flags) {
