@@ -20,6 +20,11 @@ integrate_cmake_dependency(
         GIT_URL git@github.com:jbeder/yaml-cpp.git
         GIT_TAG 9a3624205e8774953ef18f57067b3426c1c5ada6
 )
+integrate_cmake_dependency(
+        NAME spdlog
+        GIT_URL git@github.com:gabime/spdlog.git
+        GIT_TAG eb3220622e73a4889eee355ffa37972b3cac3df5
+)
 
 set(
         SOURCE_FILES
@@ -52,4 +57,5 @@ find_package(cppzmq)
 target_link_libraries(impresario-utils PUBLIC cppzmq)
 target_link_libraries(impresario-utils PUBLIC pthread)
 target_link_libraries(impresario-utils PUBLIC yaml-cpp)
+target_link_libraries(impresario-utils PUBLIC spdlog::spdlog)
 target_link_libraries(impresario-utils PUBLIC impresario-serialization)
