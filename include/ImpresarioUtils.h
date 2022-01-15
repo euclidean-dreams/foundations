@@ -11,6 +11,7 @@
 #include "../src/arbiter/BufferArbiter.h"
 #include "../src/circlet/Circlet.h"
 #include "../src/circlet/Circulable.h"
+#include "../src/circlet/TickingCirculable.h"
 #include "../src/network/NetworkSocket.h"
 #include "../src/network/Parcel.h"
 #include "../src/network/Unwrap.h"

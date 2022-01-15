@@ -5,13 +5,11 @@
 
 namespace impresarioUtils {
 
-class Circulable : public impresarioUtils::NonCopyable {
+class Circulable : public NonCopyable {
 public:
     virtual ~Circulable() = default;
 
     virtual void activate() = 0;
-
-    virtual uint64_t getTickInterval() = 0;
 
     virtual bool finished() = 0;
 };

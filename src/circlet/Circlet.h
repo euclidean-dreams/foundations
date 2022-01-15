@@ -3,6 +3,7 @@
 
 #include <thread>
 #include "Circulable.h"
+#include "TickingCirculable.h"
 #include "../Time.h"
 
 namespace impresarioUtils {
@@ -11,7 +12,11 @@ class Circlet {
 public:
     static std::unique_ptr<std::thread> begin(std::unique_ptr<Circulable> circulable);
 
+    static std::unique_ptr<std::thread> begin(std::unique_ptr<TickingCirculable> circulable);
+
     static void circle(std::unique_ptr<Circulable> circulable);
+
+    static void tickingCircle(std::unique_ptr<TickingCirculable> circulable);
 };
 
 }
