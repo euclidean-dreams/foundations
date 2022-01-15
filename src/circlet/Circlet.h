@@ -12,7 +12,7 @@ class Circlet {
 public:
     static std::unique_ptr<std::thread> begin(std::unique_ptr<Circulable> circulable);
 
-    static std::unique_ptr<std::thread> begin(std::unique_ptr<TickingCirculable> circulable);
+    static std::unique_ptr<std::thread> beginTicking(std::unique_ptr<TickingCirculable> circulable);
 
     static void circle(std::unique_ptr<Circulable> circulable);
 

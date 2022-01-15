@@ -7,7 +7,7 @@ std::unique_ptr<std::thread> Circlet::begin(std::unique_ptr<Circulable> circulab
     return thread;
 }
 
-std::unique_ptr<std::thread> Circlet::begin(std::unique_ptr<TickingCirculable> circulable) {
+std::unique_ptr<std::thread> Circlet::beginTicking(std::unique_ptr<TickingCirculable> circulable) {
     auto thread = std::make_unique<std::thread>(tickingCircle, move(circulable));
     return thread;
 }
