@@ -16,5 +16,6 @@
 #include "../src/network/Parcel.h"
 #include "../src/network/Unwrap.h"
 #include "../src/Timer.h"
+#include "../src/percipient/VolitiaPercipient.h"
 
 #endif //IMPRESARIO_UTILS_IMPRESARIOUTILS_H

@@ -50,7 +50,7 @@ set(
         src/arbiter/BufferArbiter.h
         src/Macros.h
         src/Timer.cpp src/Timer.h
-)
+        src/percipient/VolitiaPercipient.cpp src/percipient/VolitiaPercipient.h)
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})
 target_include_directories(impresario-utils PUBLIC include)
