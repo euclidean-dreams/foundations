@@ -17,11 +17,11 @@ private:
     std::shared_ptr<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>> phenomenology;
 
 public:
-    static std::unique_ptr<std::thread> create(zmq::context_t &context, std::string &endpoint,
+    static std::unique_ptr<std::thread> create(zmq::context_t &context, std::string endpoint,
                                                std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomology,
                                                std::shared_ptr<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>> phenomenology);
 
-    VolitiaPercipient(zmq::context_t &context, std::string &endpoint,
+    VolitiaPercipient(zmq::context_t &context, std::string endpoint,
                       std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomology,
                       std::shared_ptr<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>> phenomenology);
 
