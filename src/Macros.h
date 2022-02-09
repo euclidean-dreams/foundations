@@ -5,5 +5,6 @@
 
 #define LOGGER_NAME "logger"
 #define LOGGER spdlog::get(LOGGER_NAME)
+#define LOG_BREAK LOGGER->info("-------")
 
 #endif //IMPRESARIO_UTILS_MACROS_H
