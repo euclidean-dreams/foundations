@@ -11,7 +11,7 @@ public:
 
     virtual void activate() = 0;
 
-    virtual bool finished() = 0;
+    virtual bool finished() { return false; };
 };
 
 }
