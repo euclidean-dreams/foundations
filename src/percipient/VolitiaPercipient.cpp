@@ -2,18 +2,21 @@
 
 namespace impresarioUtils {
 
-std::unique_ptr<std::thread> VolitiaPercipient::create(zmq::context_t &context, std::string &endpoint) {
-    auto instance = std::make_unique<VolitiaPercipient>(context, endpoint);
+std::unique_ptr<std::thread> VolitiaPercipient::create(zmq::context_t &context, std::string &endpoint,
+                                                       std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomology,
+                                                       std::shared_ptr<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>> phenomenology) {
+    auto instance = std::make_unique<VolitiaPercipient>(context, endpoint, move(axiomology), move(phenomenology));
     return impresarioUtils::Circlet::begin(move(instance));
 }
 
-VolitiaPercipient::VolitiaPercipient(zmq::context_t &context, std::string &endpoint)
+VolitiaPercipient::VolitiaPercipient(zmq::context_t &context, std::string &endpoint,
+                                     std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomology,
+                                     std::shared_ptr<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>> phenomenology)
         : socket{context, endpoint, zmq::socket_type::sub, false},
-          axiomology{std::make_shared<impresarioUtils::Arbiter<const impresarioUtils::Parcel>>()},
-          phenomenology{std::make_shared<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>>()} {
+          axiomology{move(axiomology)},
+          phenomenology{move(phenomenology)} {
     socket.setSubscriptionFilter(ImpresarioSerialization::Identifier::axiomology);
     socket.setSubscriptionFilter(ImpresarioSerialization::Identifier::phenomenon);
-
 }
 
 void VolitiaPercipient::activate() {
@@ -23,14 +26,6 @@ void VolitiaPercipient::activate() {
     } else if (parcel->getIdentifier() == ImpresarioSerialization::Identifier::phenomenon) {
         phenomenology->give(move(parcel));
     }
-}
-
-std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> VolitiaPercipient::getAxiomology() {
-    return axiomology;
-}
-
-std::shared_ptr<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>> VolitiaPercipient::getPhenomenology() {
-    return phenomenology;
 }
 
 }
