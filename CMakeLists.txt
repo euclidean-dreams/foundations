@@ -26,6 +26,12 @@ integrate_cmake_dependency(
         GIT_TAG eb3220622e73a4889eee355ffa37972b3cac3df5
 )
 
+integrate_cmake_dependency(
+        NAME cppzmq
+        GIT_URL git@github.com:zeromq/cppzmq.git
+        GIT_TAG dd663fafd830466d34cba278c2cfd0f92eb67614
+)
+
 set(
         SOURCE_FILES
         include/ImpresarioUtils.h
@@ -55,7 +61,6 @@ set(
 add_library(impresario-utils STATIC ${SOURCE_FILES})
 target_include_directories(impresario-utils PUBLIC include)
 
-find_package(cppzmq)
 target_link_libraries(impresario-utils PUBLIC cppzmq)
 target_link_libraries(impresario-utils PUBLIC pthread)
 target_link_libraries(impresario-utils PUBLIC yaml-cpp)
