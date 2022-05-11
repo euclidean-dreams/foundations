@@ -16,6 +16,8 @@ private:
     static std::unique_ptr<char[]> alignBuffer(void *sourceBuffer, int size);
 
 public:
+    size_t size;
+
     Parcel(zmq::message_t &identifierWrapper, zmq::message_t &payload);
 
     ImpresarioSerialization::Identifier getIdentifier() const;

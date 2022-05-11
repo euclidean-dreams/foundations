@@ -4,7 +4,8 @@ namespace impresarioUtils {
 
 Parcel::Parcel(zmq::message_t &identifierWrapper, zmq::message_t &payload)
         : identifier{ImpresarioSerialization::GetIdentifierWrapper(identifierWrapper.data())->identifier()},
-          buffer{alignBuffer(payload.data(), payload.size())} {
+          buffer{alignBuffer(payload.data(), payload.size())},
+          size{payload.size()} {
 
 }
 

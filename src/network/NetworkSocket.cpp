@@ -2,8 +2,10 @@
 
 namespace impresarioUtils {
 
-NetworkSocket::NetworkSocket(zmq::context_t &context, const std::string &endpoint, zmq::socket_type socketType,
-                             bool bind)
+NetworkSocket::NetworkSocket(
+        zmq::context_t &context, const std::string &endpoint, zmq::socket_type socketType,
+        bool bind
+)
         : socket{context, socketType} {
     if (bind) {
         socket.bind(endpoint);
@@ -43,14 +45,29 @@ void NetworkSocket::send(zmq::multipart_t &message) {
     message.send(socket);
 }
 
-void NetworkSocket::sendParcel(ImpresarioSerialization::Identifier identifier,
-                               flatbuffers::FlatBufferBuilder &messageBuilder) {
+void NetworkSocket::sendParcel(
+        ImpresarioSerialization::Identifier identifier,
+        flatbuffers::FlatBufferBuilder &messageBuilder
+) {
     flatbuffers::FlatBufferBuilder identifierWrapperBuilder{};
     auto serializedIdentifier = ImpresarioSerialization::CreateIdentifierWrapper(identifierWrapperBuilder, identifier);
     identifierWrapperBuilder.Finish(serializedIdentifier);
     auto message = std::make_unique<zmq::multipart_t>();
     message->addmem(identifierWrapperBuilder.GetBufferPointer(), identifierWrapperBuilder.GetSize());
     message->addmem(messageBuilder.GetBufferPointer(), messageBuilder.GetSize());
+    message->send(socket);
+}
+
+void NetworkSocket::sendParcel(
+        std::unique_ptr<Parcel> parcel
+) {
+    flatbuffers::FlatBufferBuilder identifierWrapperBuilder{};
+    auto serializedIdentifier = ImpresarioSerialization::CreateIdentifierWrapper(identifierWrapperBuilder,
+                                                                                 parcel->getIdentifier());
+    identifierWrapperBuilder.Finish(serializedIdentifier);
+    auto message = std::make_unique<zmq::multipart_t>();
+    message->addmem(identifierWrapperBuilder.GetBufferPointer(), identifierWrapperBuilder.GetSize());
+    message->addmem(parcel->getBuffer(), parcel->size);
     message->send(socket);
 }
 

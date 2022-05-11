@@ -27,6 +27,10 @@ public:
 
     void sendParcel(ImpresarioSerialization::Identifier identifier, flatbuffers::FlatBufferBuilder &messageBuilder);
 
+    void sendParcel(
+            std::unique_ptr<Parcel> parcel
+    );
+
     zmq::socket_ref getSocketRef();
 };
 
