@@ -3,6 +3,8 @@ project(impresario-utils VERSION 0.1)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+add_compile_options(-Wno-dev)
+
 include(lib/cmake-utils/dependency-integrator.cmake)
 integrate_cmake_dependency(
         NAME impresario-serialization
@@ -24,12 +26,6 @@ integrate_cmake_dependency(
         NAME spdlog
         GIT_URL git@github.com:gabime/spdlog.git
         GIT_TAG eb3220622e73a4889eee355ffa37972b3cac3df5
-)
-
-integrate_cmake_dependency(
-        NAME cppzmq
-        GIT_URL git@github.com:zeromq/cppzmq.git
-        GIT_TAG dd663fafd830466d34cba278c2cfd0f92eb67614
 )
 
 set(
@@ -61,7 +57,6 @@ set(
 add_library(impresario-utils STATIC ${SOURCE_FILES})
 target_include_directories(impresario-utils PUBLIC include)
 
-target_link_libraries(impresario-utils PUBLIC cppzmq)
 target_link_libraries(impresario-utils PUBLIC pthread)
 target_link_libraries(impresario-utils PUBLIC yaml-cpp)
 target_link_libraries(impresario-utils PUBLIC spdlog::spdlog)
