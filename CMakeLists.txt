@@ -57,6 +57,7 @@ set(
 add_library(impresario-utils STATIC ${SOURCE_FILES})
 target_include_directories(impresario-utils PUBLIC include)
 
+target_link_libraries(impresario-utils PUBLIC zmq)
 target_link_libraries(impresario-utils PUBLIC pthread)
 target_link_libraries(impresario-utils PUBLIC yaml-cpp)
 target_link_libraries(impresario-utils PUBLIC spdlog::spdlog)
