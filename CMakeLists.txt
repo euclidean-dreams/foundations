@@ -7,9 +7,9 @@ add_compile_options(-Wno-dev)
 
 include(lib/cmake-utils/dependency-integrator.cmake)
 integrate_cmake_dependency(
-        NAME impresario-serialization
-        GIT_URL git@github.com:impresario-systems/impresario-serialization.git
-        GIT_TAG origin/dev
+        NAME dreamy-buffers
+        GIT_URL https://github.com/euclidean-dreams/dreamy-buffers.git
+        GIT_TAG origin/flow
 )
 
 SET(YAML_CPP_BUILD_TESTS OFF)
@@ -19,12 +19,12 @@ SET(YAML_CPP_BUILD_TOOLS OFF)
 SET(YAML_CPP_BUILD_CONTRIB OFF)
 integrate_cmake_dependency(
         NAME yaml
-        GIT_URL git@github.com:jbeder/yaml-cpp.git
+        GIT_URL https://github.com/jbeder/yaml-cpp.git
         GIT_TAG 9a3624205e8774953ef18f57067b3426c1c5ada6
 )
 integrate_cmake_dependency(
         NAME spdlog
-        GIT_URL git@github.com:gabime/spdlog.git
+        GIT_URL https://github.com/gabime/spdlog.git
         GIT_TAG eb3220622e73a4889eee355ffa37972b3cac3df5
 )
 
