@@ -3,8 +3,6 @@ project(impresario-utils VERSION 0.1)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_compile_options(-Wno-dev)
-
 include(lib/cmake-utils/dependency-integrator.cmake)
 integrate_cmake_dependency(
         NAME dreamy-buffers
@@ -56,6 +54,8 @@ set(
 
 add_library(impresario-utils STATIC ${SOURCE_FILES})
 target_include_directories(impresario-utils PUBLIC include)
+target_include_directories(impresario-utils PUBLIC /usr/local/include)
+target_include_directories(impresario-utils PUBLIC /opt/homebrew/Cellar/zeromq/4.3.4/include)
 
 target_link_libraries(impresario-utils PUBLIC zmq)
 target_link_libraries(impresario-utils PUBLIC pthread)
