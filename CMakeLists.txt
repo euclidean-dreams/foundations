@@ -55,9 +55,11 @@ set(
 add_library(impresario-utils STATIC ${SOURCE_FILES})
 target_include_directories(impresario-utils PUBLIC include)
 target_include_directories(impresario-utils PUBLIC /usr/local/include)
-target_include_directories(impresario-utils PUBLIC /opt/homebrew/Cellar/zeromq/4.3.4/include)
 
+target_include_directories(impresario-utils PUBLIC /opt/homebrew/Cellar/zeromq/4.3.4/include)
+target_include_directories(impresario-utils PUBLIC /opt/homebrew/Cellar/cppzmq/4.9.0/include)
 target_link_libraries(impresario-utils PUBLIC /opt/homebrew/Cellar/zeromq/4.3.4/lib/libzmq.a)
+
 target_link_libraries(impresario-utils PUBLIC pthread)
 target_link_libraries(impresario-utils PUBLIC yaml-cpp)
 target_link_libraries(impresario-utils PUBLIC spdlog::spdlog)
